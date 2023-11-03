@@ -1,17 +1,14 @@
-const { Sequelize } = require('sequelize')
+const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('khreadcross', 'root', '1234', {
-    host: 'localhost',
+
+const sequelize = new Sequelize('khreadcross', process.env.MYSQL_USERNAME, process.env.MYSQL_PASSWORD, {
+    host: process.env.MYSQL_HOSTNAME,
     dialect: 'mysql'
-})
+});
 
-async function testConnection() {
-    try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
-}
+// import booktest module
+const booktest = require('./mysql/booktest')(sequelize, Sequelize);
 
-testConnection()
+module.exports = {
+  booktest
+};

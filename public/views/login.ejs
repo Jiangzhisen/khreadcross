@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Log in</title>
+        <link rel="stylesheet" href="/views/css/login.css"> <!-- 引入您的 CSS 文件 -->
+    </head>
+    <body>
+        <!-- Header -->
+        <%- include('header') %>
+        <!-- Header -->
+        <main>
+        <!-- 登入表單 -->
+        <form action="/login" method="post"> 
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Login</button>
+            <div class="login-text">Don't have an account yet?<a href="./signIn">Click here to register.</a></div>
+            <div>
+                <% if (typeof error !== 'undefined') { %>
+                    <p><%= error %></p>
+                <% } %>
+            </div>               
+        </form>
+        </main>
+        <!-- Footer -->
+        <%- include('footer') %>
+        <!-- Footer -->
+    </body>
+</html>

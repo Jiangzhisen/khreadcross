@@ -1,8 +1,15 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
 
-const book = require('./modules/book') // book route
+const book = require('./modules/bookBySequelize');
+const index = require('./modules/index');
+const login = require('./modules/login');
+const signIn = require('./modules/signIn');
 
-router.use('/book', book)
+const router = express.Router();
 
-module.exports = router
+router.use('/book', book);
+router.use('/', index);
+router.use('/login', login);
+router.use('/signIn', signIn);
+
+module.exports = router;

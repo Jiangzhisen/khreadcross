@@ -8,8 +8,9 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(session({
-    secret: 'your-secret-key', // It is recommended to replace this with the actual security key
+    secret: '7AC158C3949A25ADED15B8C3E7D96', // It is recommended to replace this with the actual security key
     resave: false, // Whether to resave the session every time, the default is true
     saveUninitialized: false, // Whether to regenerate the session every time, the default is true
     cookie: { secure: false } // It is recommended to set this to true in production environments to use HTTPS

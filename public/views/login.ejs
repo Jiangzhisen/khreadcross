@@ -3,33 +3,54 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <title>Log in</title>
-        <link rel="stylesheet" href="/views/css/login.css"> <!-- 引入您的 CSS 文件 -->
+        <link rel="stylesheet" href="../css/login.css">
     </head>
     <body>
-        <!-- Header -->
-        <%- include('header') %>
-        <!-- Header -->
         <main>
-        <!-- 登入表單 -->
-        <form action="/login" method="post"> 
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            <button type="submit">Login</button>
-            <div class="login-text">Don't have an account yet?<a href="./signIn">Click here to register.</a></div>
-            <div>
-                <% if (typeof error !== 'undefined') { %>
-                    <p><%= error %></p>
-                <% } %>
-            </div>               
-        </form>
+            <div class="container overflow-hidden mt-5 title">
+                <div class="row align-items-center gy-3">
+                    <div class="col-12">
+                        <h1>Welcome to KHREADCROSS!!</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center main_block">
+                <div class="container overflow-hidden">
+                    <form action="/login" method="post"> 
+                        <div class="row align-items-center justify-content-center gy-3">
+                            <div class="col-12 p-3">
+                                <h3>Login In</h3>
+                            </div>
+                            <div class="col-12 p-3">
+                                <input type="email" class="form-control input-box" id="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="col-12 p-3">
+                                <input type="password" class="form-control input-box" id="password" name="password" placeholder="Password" required>
+                            </div>
+                            <div class="col-12 p-3">
+                                <button type="submit" class="btn btn-outline-dark">Login</button>
+                            </div>
+                            <div class="col-12 p-3">
+                                <div class="login-text">
+                                    <p>Don't have an account yet?</p>
+                                    <a href="./signIn" class="btn btn-outline-dark">Click here to register.</a>
+                                </div>
+                            </div>
+                            <div class="col-12 p-3">
+                                <% if (error) { %>
+                                    <p><%= error %></p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </main>
-        <!-- Footer -->
-        <%- include('footer') %>
-        <!-- Footer -->
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>
 </html>

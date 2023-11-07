@@ -6,9 +6,20 @@ const sequelize = new Sequelize('khreadcross', process.env.MYSQL_USERNAME, proce
     dialect: 'mysql'
 });
 
-// import booktest module
-const booktest = require('./mysql/booktest')(sequelize, Sequelize);
+const users = require('./mysql/users')(sequelize, Sequelize);
+const posts = require('./mysql/posts')(sequelize, Sequelize);
+const notifications = require('./mysql/notifications')(sequelize, Sequelize);
+const likes = require('./mysql/likes')(sequelize, Sequelize);
+const follows = require('./mysql/follows')(sequelize, Sequelize);
+const feedbacks = require('./mysql/feedbacks')(sequelize, Sequelize);
+const comments = require('./mysql/comments')(sequelize, Sequelize);
 
 module.exports = {
-  booktest
+  users,
+  posts,
+  notifications,
+  likes,
+  follows,
+  feedbacks,
+  comments
 };

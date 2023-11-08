@@ -17,6 +17,16 @@ app.use(session({
   }));
 app.use(router); // use router
 app.use(express.static('public'));
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(err.status || 500);
+    res.json({
+        error: {
+            message: err.message  || 'Internal Server Error'
+        }
+    });
+});
 
 app.set('views',__dirname + '/public/views'); // The folder where the template engine is located
 app.set('view engine', 'ejs'); // Template properties

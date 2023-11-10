@@ -1,8 +1,6 @@
 const express = require('express');
 
 const UserController = require('../../controllers/user_controller');
-const { users } = require('../../models/index');
-const HttpError = require('../../utils/http_error');
 
 const router = express.Router();
 

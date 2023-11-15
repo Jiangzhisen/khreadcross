@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "NODE_ENV=local nodemon app.js",
-    "test": "NODE_ENV=local mocha tests"
+    "test": "NODE_ENV=local nyc mocha tests"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "chai": "^4.3.10",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.4.0",
     "dayjs": "^1.11.10",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
@@ -30,6 +32,7 @@
     "mocha": "^10.2.0",
     "mysql2": "^3.6.2",
     "nodemon": "^3.0.1",
+    "nyc": "^15.1.0",
     "sequelize": "^6.33.0",
     "sequelize-auto": "^0.8.8",
     "uuid": "^9.0.1"

@@ -34,3 +34,5 @@ app.set('view engine', 'ejs'); // Template properties
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
+
+module.exports = app;
